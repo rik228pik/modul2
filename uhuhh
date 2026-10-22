@@ -1,0 +1,24 @@
+interface Vessel {
+    void PrepareToMovement();
+    void Move();
+}
+
+class SailingVessel implements Vessel {
+    public void PrepareToMovement() { System.out.println("Вітрильник: підняти вітрила"); }
+    public void Move() { System.out.println("Вітрильник: пливе за вітром"); }
+}
+
+class Submarine implements Vessel {
+    public void PrepareToMovement() { System.out.println("Човен: занурення"); }
+    public void Move() { System.out.println("Човен: пливе під водою"); }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Vessel[] vessels = { new SailingVessel(), new Submarine() };
+        for (Vessel v : vessels) {
+            v.PrepareToMovement();
+            v.Move();
+        }
+    }
+}
